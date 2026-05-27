@@ -9,6 +9,8 @@ const morgan = require("morgan");
 
 const userRoutes = require("./routes/userRoutes");
 const productRoutes = require("./routes/productRoutes");
+const orderRoutes =
+    require("./routes/orderRoutes");
 
 
 
@@ -38,7 +40,7 @@ app.get("/", (req, res) => {
 // ROUTES
 app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
-
+app.use("/api/orders", orderRoutes);
 
 
 module.exports = app;
