@@ -11,6 +11,8 @@ const userRoutes = require("./routes/userRoutes");
 const productRoutes = require("./routes/productRoutes");
 const orderRoutes =
     require("./routes/orderRoutes");
+const paymentRoutes =
+    require("./routes/paymentRoutes");
 
 
 
@@ -41,6 +43,7 @@ app.get("/", (req, res) => {
 app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/orders", orderRoutes);
+app.use("/api/payments", paymentRoutes);
 
 
 module.exports = app;
