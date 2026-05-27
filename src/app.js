@@ -7,7 +7,7 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 
 
-
+const userRoutes = require("./routes/userRoutes");
 const productRoutes = require("./routes/productRoutes");
 
 
@@ -36,6 +36,7 @@ app.get("/", (req, res) => {
 
 
 // ROUTES
+app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
 
 
