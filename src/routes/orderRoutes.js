@@ -6,12 +6,13 @@ const router = express.Router();
 
 const {
 
-    createOrder,
+  createOrder,
 
-    getAllOrders,
+  getAllOrders,
 
+  getSingleOrder,
 } = require(
-    "../controllers/orderController"
+  "../controllers/orderController"
 );
 
 
@@ -30,6 +31,9 @@ router.post("/", createOrder);
 
 router.get("/", getAllOrders);
 
+router.get("/:id", getSingleOrder);
+
 
 
 module.exports = router;
+

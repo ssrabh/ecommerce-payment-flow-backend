@@ -183,11 +183,67 @@ const getAllOrders = async (
 };
 
 
+/*
+  GET SINGLE ORDER
+*/
 
+const getSingleOrder = async (
+    req,
+    res
+) => {
+
+    try {
+
+        const order =
+            await Order.findById(
+                req.params.id
+            )
+
+                .populate("user")
+
+                .populate(
+                    "items.product"
+                );
+
+
+
+        if (!order) {
+
+            return res.status(404).json({
+
+                success: false,
+
+                message:
+                    "Order not found",
+            });
+        }
+
+
+
+        res.status(200).json({
+
+            success: true,
+
+            order,
+        });
+
+    } catch (error) {
+
+        console.log(error);
+
+        res.status(500).json({
+
+            success: false,
+
+            message:
+                "Failed to fetch order",
+        });
+    }
+};
 
 module.exports = {
 
     createOrder,
-
     getAllOrders,
+    getSingleOrder,
 };
