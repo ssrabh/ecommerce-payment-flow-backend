@@ -15,6 +15,11 @@ const {
 );
 
 
+const {
+    handleWebhook,
+} = require(
+    "../controllers/paymentWebhookController"
+);
 
 /*
   CREATE RAZORPAY ORDER
@@ -37,5 +42,12 @@ router.post(
 );
 
 
+/*
+  RAZORPAY WEBHOOK
+*/
+router.post(
+    "/webhook",
+    handleWebhook
+);
 
 module.exports = router;
